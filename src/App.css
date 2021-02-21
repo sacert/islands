@@ -1,16 +1,367 @@
 .App {
-  text-align: center;
+  width: 60%;
+  margin: auto;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 5vmin;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.App-name {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 800;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 3px;
+}
+
+.App-quote {
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  font-weight: 800;
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 3px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.explanation {
+  font-size: 22px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.info {
+  display: flex;
+}
+
+.App-bg {
+  position: absolute;
+  z-index: -100;
+  right:0;
+  top:0;
+  width: 1000px;
+}
+
+.info-holder {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.info-holder-description {
+  display: none;
+  margin-top: 20px;
+}
+
+.slack-header-icon {
+  padding: 0px 10px;
+  width: 25px;
+}
+
+@media screen and (max-width: 1440px) {
+  .App-info {
+    width: 300px !important;
   }
+  .quote {
+    width: 100% !important;
+  }
+  form {
+    width: 100% !important;
+  }
+}
+
+
+@media screen and (max-width: 1200px) {
+  .App-info {
+    width: 250px !important;
+  }
+  .App {
+    width: 80% !important;
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .App {
+    width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 855px) {
+  .App {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 706px) {
+  .info-holder {
+    display: none !important;
+  }
+  .info-holder-description {
+    display: flex !important;
+    margin-right: 50px !important;
+  }
+  .buttons {
+    width: 30% !important;
+  }
+  .buttons button {
+    margin: 10px 20px !important;
+    width: 200px !important;
+    height: 60px !important;
+    border-radius: 10px !important;
+    font-size: 20px !important;
+  }
+  .okay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .info-holder-description {
+    margin-right: 20px !important;
+  }
+  .info-holder-description {
+    display: flex !important;
+    margin-right: 20px !important;
+    padding-left: 10px !important;
+  }
+  .buttons {
+    width: 240px !important;
+  }
+  .breakdown-img {
+    width: 100% !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .okay {
+    flex-direction: column !important;
+  }
+  .buttons {
+    display: flex !important;
+    width: 100% !important;
+  }
+  .profile-data {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block !important;
+  }
+  .buttons {
+    width: 100% !important;
+  }
+  .buttons button {
+    width: 50% !important;
+  }
+  .email-submit {
+    padding: 13px 15px !important;
+  }
+}
+
+.App-info {
+  border-radius: 5px;
+  box-shadow: 0 0 .25em .25em rgba(0, 0, 0, 0.25);
+  width: 400px;
+}
+
+.quote {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  margin-top: 50px;
+  width: 80%;
+  letter-spacing: 5px;
+}
+
+.divider {
+  width: 30%;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.interest{
+  padding-bottom: 30px;
+}
+
+.buttons button {
+  border-radius: 20px;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 10px;
+  cursor:pointer;
+}
+
+.buttons button:focus {
+  outline: none;
+}
+
+.interested {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-weight: 600;
+}
+
+.contact {
+  background-color: white;
+  border: 3px solid;
+  font-weight: 600;
+  color: black;
+}
+
+.profiles-description {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  margin-top: 50px;
+  letter-spacing: 5px;
+}
+
+.profiles-info {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  margin-top: 20px;
+  letter-spacing: 2px;
+}
+
+.profile {
+  padding: 20px;
+  display: flex;
+}
+
+.profile-data {
+  display: flex;
+}
+
+.all-profiles {
+  width: 60%
+}
+
+.profile-img {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-icon-img {
+  width: 400px;
+}
+
+.slack-title {
+  display: flex;
+}
+
+.slack-description {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: center;
+}
+
+.subscribe form {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.email {
+  width: 90%;
+  padding: 10px 20px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
+  margin-right: 20px;
+  border: 3px solid;
+  border-image-source: linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66));
+  border-image-slice: 1;
+}
+
+.email-submit {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  font-weight: 600;
+  padding: 13px 30px;
+  border-radius: 10px;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+.breakdown {
+  display: flex;
+  justify-content: center;
+}
+
+.breakdown-img img {
+}
+
+.slack-logo {
+  height: 5vmin;
+  pointer-events: none;
+  padding-left: 10px;
+}
+
+.profile-text {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.profile-text-last {
+  font-size: 18px;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dev-icon {
+  border-radius: 10px;
+  width: 50px;
+}
+
+.App-divider {
+  margin: 40px;
+  width: 100%;
+  border-bottom: 1px solid #e5e8f0;
 }
 
 .App-header {
