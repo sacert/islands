@@ -156,16 +156,13 @@ const Interested = () => {
 
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyr1fOFv2WhGvWEK3yxR1SgITcchznxoWAMxhDVjFHW2nZBw8B49PGR/exec';
   const handleSubmit = (event) => {
-    console.log('asd');
     const form = document.forms['submit-to-google-sheet'];
-    console.log(form);
     form.addEventListener('submit', e => {
       e.preventDefault();
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => console.log('Success!', response))
         .catch(error => console.error('Error!', error.message))
     })
-    console.log('asd');
 
     notify();
     event.preventDefault();
