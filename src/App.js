@@ -8,7 +8,9 @@ import testing from './testing.png';
 import vector from './vector.svg';
 import slack from './slack.png';
 import breakdown from './breakdown.png';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 const Header = () => {
@@ -140,6 +142,35 @@ const Slack = () => {
 }
 
 const Interested = () => {
+
+  const [email, setEmail] = useState('');
+  const notify = () => toast.info('Email submitted, you will recieve an email once Islands is out!', {
+                          position: "bottom-center",
+                          autoClose: 5000,
+                          hideProgressBar: false,
+                          closeOnClick: true,
+                          pauseOnHover: true,
+                          draggable: false,
+                          progress: undefined,
+                          });
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyr1fOFv2WhGvWEK3yxR1SgITcchznxoWAMxhDVjFHW2nZBw8B49PGR/exec';
+  const handleSubmit = (event) => {
+    console.log('asd');
+    const form = document.forms['submit-to-google-sheet'];
+    console.log(form);
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+    console.log('asd');
+
+    notify();
+    event.preventDefault();
+  }
+
   return (
     <div className="interest">
       <div className="slack-description">
@@ -149,11 +180,22 @@ const Interested = () => {
         Sign up now to get notified when Islands gets released and recieve up to a <b>50% discount</b> when it does 💰!
       </div>
       <div className="subscribe">
-        <form>
-          <input id="email" className="email" placeholder="Your Email Address..." type="text" name="name" />
+        <form name="submit-to-google-sheet" onSubmit={(e) => {handleSubmit(e)}}>
+          <input id="email" className="email" placeholder="Your Email Address..." type="email" name="email_address" onChange={e => setEmail(e.target.value)} />
           <input className="email-submit" type="submit" value="Submit" />
         </form>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+      />
     </div>
   )
 }
