@@ -35,11 +35,11 @@ const Description = () => {
       <div className="info">
         <div>
           <div className="quote">
-            "self destructive EC2 instaces - for 👨‍💻/👩‍💻s"
+            "timed self destructive EC2 instaces - for 👨‍💻/👩‍💻s"
           </div>
 
           <div className="explanation">
-            Speed up dev productivity by giving the option to easily spin up machines for your devs that doesn't involve being blocked by devops. Self destructive for security 👮‍♂️ and money saving 💰!
+            Speed up dev productivity by giving the option to easily spin up machines for your devs that doesn't involve being blocked by devops. Timed self destructive for security 👮‍♂️ and money saving 💰!
           </div>
           <div className="okay">
             <div className="info-holder-description">
