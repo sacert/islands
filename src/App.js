@@ -143,7 +143,6 @@ const Slack = () => {
 
 const Interested = () => {
 
-  const [email, setEmail] = useState('');
   const notify = () => toast.info('Email submitted, you will recieve an email once Islands is out!', {
                           position: "bottom-center",
                           autoClose: 5000,
@@ -157,12 +156,9 @@ const Interested = () => {
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyr1fOFv2WhGvWEK3yxR1SgITcchznxoWAMxhDVjFHW2nZBw8B49PGR/exec';
   const handleSubmit = (event) => {
     const form = document.forms['submit-to-google-sheet'];
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
-        .catch(error => console.error('Error!', error.message))
-    })
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
 
     notify();
     event.preventDefault();
@@ -178,7 +174,7 @@ const Interested = () => {
       </div>
       <div className="subscribe">
         <form name="submit-to-google-sheet" onSubmit={(e) => {handleSubmit(e)}}>
-          <input id="email" className="email" placeholder="Your Email Address..." type="email" name="email_address" onChange={e => setEmail(e.target.value)} />
+          <input id="email" className="email" placeholder="Your Email Address..." type="email" name="email_address"/>
           <input className="email-submit" type="submit" value="Submit" />
         </form>
       </div>
